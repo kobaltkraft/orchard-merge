@@ -80,3 +80,13 @@ Key files: `src/scenes/GameScene.ts` (core loop), `src/config/fruitConfig.ts` (t
 - Saves never leave the device. No accounts, no analytics.
 
 See [DEPENDENCIES.md](DEPENDENCIES.md) for the full dependency audit (licenses + offline status).
+
+## 📓 Design journal
+
+Full coursework documentation lives in [`docs/`](docs/planning.md):
+
+- [Planning & design journal](docs/planning.md) — idea, decomposition, decisions, change log, dev log, mechanic pseudocode
+- [User flow](docs/user-flow.md) — screen → decision → action diagram (Mermaid)
+- [Wireframes](docs/wireframes.md) — menu, gameplay, pause, game-over, shop layouts
+- [Testing evidence](docs/testing.md) — automated suites, manual QA passes, real bug log
+- [AI documentation log](docs/ai-log.md) — declared AI-assisted (visual/polish) work
