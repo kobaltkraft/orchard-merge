@@ -60,6 +60,12 @@ tests/            # unit/property tests + Playwright e2e
 docs/images/      # screenshots used above
 ```
 
+
+![Uploading diagram (1).png…]()
+
+
+
+
 Key files: `src/scenes/GameScene.ts` (core loop), `src/config/fruitConfig.ts` (tiers/specials), `src/persistence/SaveSchema.ts` (save v1 + repair), `src/audio/AudioManager.ts` (synth + samples).
 
 ## 🎮 Controls
