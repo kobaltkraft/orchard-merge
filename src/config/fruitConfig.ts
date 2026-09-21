@@ -1,0 +1,44 @@
+export interface FruitDef {
+  id: string; name: string; tier: number; radius: number;
+  density: number; friction: number; frictionStatic: number; frictionAir: number;
+  restitution: number; score: number; coinValue: number;
+  rarity: 'common'|'uncommon'|'rare'|'epic'|'legendary'|'mythic';
+  mergeTarget: string | null; body: string; leaf: string; blush: string;
+  unlockLevel: number; shopPrice: number;   special?: 'bomb'|'ice'|'magnet'|'rainbow'|'golden'|'wild'|'heavy'|'light'|'ghost'|'rich';
+  desc: string;
+}
+
+// 14-tier orchard progression (radii tuned for 400px jar)
+// Physics tuned for controlled, predictable stacking: low restitution,
+// moderate friction, gentle air drag. Small fruits lively but not chaotic,
+// giants heavy and settled. Sizes run spicy on purpose — the jar fills fast.
+export const FRUITS: FruitDef[] = [
+  { id:'seed', name:'Seed', tier:0, radius:20, density:0.0009, friction:0.35, frictionStatic:0.6, frictionAir:0.014, restitution:0.28, score:10, coinValue:1, rarity:'common', mergeTarget:'sproutpea', body:'#8a6b46', leaf:'#5da85f', blush:'#a98a5f', unlockLevel:1, shopPrice:0, desc:'A sleepy orchard seed. Match two to wake it up.' },
+  { id:'sproutpea', name:'Sproutpea', tier:1, radius:28, density:0.001, friction:0.36, frictionStatic:0.65, frictionAir:0.013, restitution:0.26, score:25, coinValue:2, rarity:'common', mergeTarget:'dewberry', body:'#7bc96f', leaf:'#3f8f4f', blush:'#a8e6a1', unlockLevel:1, shopPrice:0, desc:'Crisp garden sprout. Pops nicely.' },
+  { id:'dewberry', name:'Dewberry', tier:2, radius:35, density:0.0011, friction:0.38, frictionStatic:0.7, frictionAir:0.012, restitution:0.24, score:60, coinValue:4, rarity:'common', mergeTarget:'sunplum', body:'#5aa7e8', leaf:'#2f6cb0', blush:'#bfe0ff', unlockLevel:1, shopPrice:0, desc:'Cool morning berry with a dewy shine.' },
+  { id:'sunplum', name:'Sunplum', tier:3, radius:41, density:0.0012, friction:0.4, frictionStatic:0.75, frictionAir:0.011, restitution:0.2, score:140, coinValue:8, rarity:'uncommon', mergeTarget:'honeyapricot', body:'#b678e8', leaf:'#5da85f', blush:'#e3c6ff', unlockLevel:2, shopPrice:250, desc:'Sun-warmed plum. Heavier than it looks.' },
+  { id:'honeyapricot', name:'Honey Apricot', tier:4, radius:48, density:0.0013, friction:0.42, frictionStatic:0.8, frictionAir:0.010, restitution:0.16, score:320, coinValue:15, rarity:'uncommon', mergeTarget:'ciderapple', body:'#f5a94b', leaf:'#4e8f3f', blush:'#ffe0ae', unlockLevel:3, shopPrice:600, desc:'Drips with orchard honey.' },
+  { id:'ciderapple', name:'Cider Apple', tier:5, radius:53, density:0.00145, friction:0.44, frictionStatic:0.85, frictionAir:0.009, restitution:0.12, score:750, coinValue:30, rarity:'rare', mergeTarget:'emberpeach', body:'#e84f4f', leaf:'#3f8f4f', blush:'#ffb3ab', unlockLevel:4, shopPrice:1400, desc:'Orchard classic. A satisfying thud.' },
+  { id:'emberpeach', name:'Ember Peach', tier:6, radius:63, density:0.0016, friction:0.46, frictionStatic:0.9, frictionAir:0.0085, restitution:0.08, score:1700, coinValue:60, rarity:'rare', mergeTarget:'frostmelon', body:'#c2431f', leaf:'#2f7a3f', blush:'#ffb59d', unlockLevel:6, shopPrice:3200, desc:'Warm fuzz, big presence.' },
+  { id:'frostmelon', name:'Frost Melon', tier:7, radius:76, density:0.0018, friction:0.48, frictionStatic:0.95, frictionAir:0.008, restitution:0.05, score:4000, coinValue:140, rarity:'epic', mergeTarget:'starpine', body:'#5fd6a8', leaf:'#1f6f5f', blush:'#d2fff0', unlockLevel:8, shopPrice:7000, desc:'Cool rind, heavy core. Board-changer.' },
+  { id:'starpine', name:'Star Pineapple', tier:8, radius:87, density:0.002, friction:0.5, frictionStatic:1.0, frictionAir:0.0075, restitution:0.03, score:9500, coinValue:320, rarity:'legendary', mergeTarget:'auroramelon', body:'#e8c832', leaf:'#2f8f3f', blush:'#fff3b0', unlockLevel:10, shopPrice:15000, desc:'Crowned giant. Merge me if you dare.' },
+  { id:'auroramelon', name:'Aurora Melon', tier:9, radius:103, density:0.0023, friction:0.52, frictionStatic:1.0, frictionAir:0.007, restitution:0.02, score:25000, coinValue:900, rarity:'mythic', mergeTarget:'solarplum', body:'#6a3fd4', leaf:'#e8d45f', blush:'#d9ccff', unlockLevel:12, shopPrice:40000, special:'golden', desc:'The aurora blooms into something hotter.' },
+  { id:'solarplum', name:'Solar Plum', tier:10, radius:110, density:0.0025, friction:0.54, frictionStatic:1.0, frictionAir:0.0065, restitution:0.02, score:60000, coinValue:2200, rarity:'mythic', mergeTarget:'cosmicfig', body:'#ffd94d', leaf:'#b03a1f', blush:'#ffe9b0', unlockLevel:14, shopPrice:80000, special:'golden', desc:'A miniature sun. Handle with awe.' },
+  { id:'cosmicfig', name:'Cosmic Fig', tier:11, radius:116, density:0.0027, friction:0.56, frictionStatic:1.0, frictionAir:0.006, restitution:0.02, score:150000, coinValue:5500, rarity:'mythic', mergeTarget:'everbloom', body:'#3a4fe0', leaf:'#2a3a8f', blush:'#c6ccff', unlockLevel:16, shopPrice:150000, special:'golden', desc:'Swirls with newborn galaxies.' },
+  { id:'everbloom', name:'Everbloom', tier:12, radius:121, density:0.0029, friction:0.58, frictionStatic:1.0, frictionAir:0.006, restitution:0.02, score:375000, coinValue:13000, rarity:'mythic', mergeTarget:'worldseed', body:'#e86fa8', leaf:'#2f7a3f', blush:'#ffd2e8', unlockLevel:18, shopPrice:300000, special:'golden', desc:'A flower that never stops opening.' },
+  { id:'worldseed', name:'Worldseed', tier:13, radius:126, density:0.0031, friction:0.6, frictionStatic:1.0, frictionAir:0.0055, restitution:0.02, score:900000, coinValue:30000, rarity:'mythic', mergeTarget:null, body:'#f2e8ff', leaf:'#e8d45f', blush:'#ffffff', unlockLevel:20, shopPrice:600000, special:'golden', desc:'The seed of every grove. Final bloom.' },
+];
+
+export const SPECIAL_DEFS: FruitDef[] = [
+  { id:'bombfruit', name:'Popfruit', tier:99, radius:24, density:0.001, friction:0.3, frictionStatic:0.5, frictionAir:0.01, restitution:0.5, score:200, coinValue:25, rarity:'epic', mergeTarget:null, body:'#3a3a44', leaf:'#ff5f5f', blush:'#ffb3b3', unlockLevel:5, shopPrice:0, special:'bomb', desc:'Pops nearby small fruits (push + bonus).' },
+  { id:'icefruit', name:'Frostpea', tier:99, radius:22, density:0.0011, friction:0.05, frictionStatic:0.1, frictionAir:0.02, restitution:0.2, score:150, coinValue:20, rarity:'rare', mergeTarget:null, body:'#bfeaff', leaf:'#5aa7e8', blush:'#ffffff', unlockLevel:4, shopPrice:0, special:'ice', desc:'Chills the jar: slows everything briefly.' },
+  { id:'magnetfruit', name:'Lodestone Plum', tier:99, radius:26, density:0.0014, friction:0.3, frictionStatic:0.5, frictionAir:0.01, restitution:0.25, score:250, coinValue:30, rarity:'epic', mergeTarget:null, body:'#c02760', leaf:'#8f2f5f', blush:'#ffc2dd', unlockLevel:7, shopPrice:0, special:'magnet', desc:'Tugs matching tier mates closer.' },
+  { id:'prismfruit', name:'Prismfruit', tier:99, radius:28, density:0.0012, friction:0.3, frictionStatic:0.5, frictionAir:0.009, restitution:0.35, score:500, coinValue:80, rarity:'legendary', mergeTarget:null, body:'#ffffff', leaf:'#7a5fe8', blush:'#e8f7ff', unlockLevel:9, shopPrice:0, special:'rainbow', desc:'Wild: merges with whatever it touches (one tier up from partner).' },
+  { id:'goldenapple', name:'Golden Apple', tier:99, radius:26, density:0.0012, friction:0.3, frictionStatic:0.5, frictionAir:0.01, restitution:0.3, score:800, coinValue:150, rarity:'legendary', mergeTarget:null, body:'#e8b832', leaf:'#3f8f4f', blush:'#fff3b0', unlockLevel:6, shopPrice:0, special:'rich', desc:'Solid gold. Bursts into a shower of coins.' },
+  { id:'ironplum', name:'Iron Plum', tier:99, radius:24, density:0.006, friction:0.45, frictionStatic:0.7, frictionAir:0.008, restitution:0.05, score:300, coinValue:40, rarity:'epic', mergeTarget:null, body:'#6a6f7a', leaf:'#3a3f4a', blush:'#c6ccd6', unlockLevel:5, shopPrice:0, special:'heavy', desc:'Absurdly heavy. Slams the whole stack down.' },
+  { id:'chronoberry', name:'Chrono Berry', tier:99, radius:22, density:0.0011, friction:0.2, frictionStatic:0.4, frictionAir:0.015, restitution:0.25, score:400, coinValue:60, rarity:'epic', mergeTarget:null, body:'#7a48d8', leaf:'#e8d45f', blush:'#d9ccff', unlockLevel:6, shopPrice:0, special:'ice', desc:'Bends time: slows the whole jar for 10s.' },
+  { id:'ghostgrape', name:'Ghost Grape', tier:99, radius:24, density:0.0008, friction:0.2, frictionStatic:0.3, frictionAir:0.012, restitution:0.3, score:600, coinValue:90, rarity:'legendary', mergeTarget:null, body:'#c6b8e8', leaf:'#8f8fb0', blush:'#ffffff', unlockLevel:8, shopPrice:0, special:'ghost', desc:'Spooky: phases through the stack, then turns solid.' },
+];
+
+export const fruitById = (id: string): FruitDef | undefined => FRUITS.find(f => f.id === id) ?? SPECIAL_DEFS.find(f => f.id === id);
+export const dropPoolClassic = ['seed','sproutpea','dewberry','sunplum','honeyapricot','ciderapple'] as const;

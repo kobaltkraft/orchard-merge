@@ -1,0 +1,21 @@
+# Dependencies & build outputs — never commit these.
+node_modules/
+dist/
+
+# Test & QA artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+*.log
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+*.local
+
+# Vite / env
+.env
+.env.*
+!.env.example

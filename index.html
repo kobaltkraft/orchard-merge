@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#1d3a2a" />
+    <meta name="description" content="Orchard Merge — Pocket Grove. Original offline merge-fruit arcade game." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Orchard Merge — Pocket Grove</title>
+    <style>
+      html, body { margin:0; padding:0; width:100%; height:100%; background:#0e1f16; overflow:hidden; overscroll-behavior:none; }
+      #app { position:fixed; inset:0; touch-action:none; padding-bottom:env(safe-area-inset-bottom, 0px); box-sizing:border-box; }
+      #app canvas { display:block; margin:0 auto; touch-action:none; }
+      #app canvas:focus-visible { outline:3px solid #9ef0c8; outline-offset:-3px; }
+      * { -webkit-tap-highlight-color: transparent; }
+      #grove-side { display:none; }
+      @media (min-width:1100px) {
+        #grove-side { display:flex; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
